@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import  { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
+
+import Comments from './Comments';
 
 const SinglePost = props => {
     const { id } = useParams();
@@ -18,8 +20,10 @@ const SinglePost = props => {
 
     return (
         <>
+        <Link to="/">Home</Link>
             <h1>Single Post</h1>
             <p>{post.post_title}</p>
+            <Comments postID={post.id}/>
         </>
     )
 }
