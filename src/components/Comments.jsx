@@ -19,6 +19,8 @@ const Comments = props => {
                 return(
                     <div key={comment.id}>
                         <h3>{comment.comment_title}</h3>
+                        <p>{comment.comment_author}</p>
+                        <p>{comment.comment_body}</p>
                     </div>
                 )
             })}
