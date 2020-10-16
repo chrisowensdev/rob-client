@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -14,17 +14,7 @@ const PostList = styled.div`
 `
 
 const Posts = props => {
-    const [posts, setPosts] = useState([]);
-
-    useEffect(() => {
-        (async function() {
-            const response = await fetch(`http://localhost:3333/`);
-            console.log(response);
-            const postData = await response.json();
-            setPosts(postData);
-        })();
-    }, [setPosts]);
-
+    const { posts } = props;
     return (
         <>
         <h1>Blog Posts</h1>

@@ -1,5 +1,12 @@
 import React, {useState, useEffect} from 'react';
 import { useParams } from 'react-router-dom';
+import styled from 'styled-components';
+
+const CommentSection = styled.div`
+    border: 1px solid #000;
+    margin: 30px;
+    text-align: left;
+`;
 
 const Comments = props => {
     const { id } = useParams();
@@ -8,13 +15,15 @@ const Comments = props => {
     useEffect(() => {
         (async function() {
             const response = await fetch(`http://localhost:3333/comments/${id}`);
-            console.log(response);
             const commentData = await response.json();
             setComments(commentData);
         })();
     }, [setComments, id]);
     return (
+
+        
         <>
+        <CommentSection>
             {comments.map(comment => {
                 return(
                     <div key={comment.id}>
@@ -24,6 +33,7 @@ const Comments = props => {
                     </div>
                 )
             })}
+            </CommentSection>
         </>
         )
 }
